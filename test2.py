@@ -1,3 +1,3 @@
-from collections import OrderedDict
-hi = OrderedDict([('value', '17'), ('measures', '攝氏度')])
-print(hi['value'])
+dic = {}
+test = dic.get('s',[]).append('s')
+print(test)
