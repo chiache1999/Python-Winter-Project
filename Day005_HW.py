@@ -29,13 +29,13 @@ def printTime(ans_time):
     return timeString
 
 #問題發問時間
-question_time = data['data'][0]['updated_time']
+question_time = data['data'][0]['question']['created']
 print("問題發問時間：",printTime(question_time))
 
 
 #print(len(data['data'])) #5 → 代表第一筆回答為 [1]；最後一筆回答 [4]
 
-firstans_time = data['data'][1]['created_time']
+firstans_time = data['data'][0]['created_time']
 print("第一筆回答時間：",printTime(firstans_time))
 lastans_time = data['data'][4]['created_time']
 print("最後一筆回答時間：",printTime(lastans_time))
