@@ -1,9 +1,18 @@
-import time
-from datetime import datetime
-date_num = 1557824412
-loc_time = time.localtime(date_num)
-print(loc_time)
-timestr = time.strftime("%Y-%m-%d %H:%M:%S",loc_time)
-date_test = datetime.fromtimestamp(date_num)
-print(date_test)
-print(timestr)
+from bs4 import BeautifulSoup
+doc = '''
+<html>
+      <head>
+           <title>The story</title>
+      </head>
+<body>
+      <p class="title-class" id="title-id"><b>The Dormouse's story</b></p>
+      <p class="content">
+            <a href="http://example.com/link1" class="link" id="link1">A</a>
+            <a href="http://example.com/link2" class="link" id="link2">B</a>
+            <a href="http://example.com/link3" class="link" id="link3">C</a>
+      </p>
+</body>
+</html>
+'''
+soup = BeautifulSoup(doc,"html.parser")
+print(soup.a)
