@@ -1,14 +1,6 @@
-import xmltodict
+import requests
 
-#存取檔案
-with open("./example/sample.xml",encoding="utf-8") as fd:
-    doc = dict(xmltodict.parse(fd.read()))
-    print(type(xmltodict.parse(fd.read())))
-print(doc)
-#存取我們要的資訊
-print(doc['CUPOY']['Title'])
+headers = {'user-agent':'my-app/0.05'}
+r = requests.get('https://www.zhihu.com/api/v4/questions/55493026/answers',headers=headers)
 
-#用迴圈存取我們的資訊
-chapters = doc['CUPOY']['Chapters']['Chapter']
-for chapter in chapters:
-    print(chapter['@name'],chapter['#text'])
+print(r.text)
