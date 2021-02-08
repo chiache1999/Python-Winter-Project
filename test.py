@@ -1,6 +1,9 @@
-import requests
-
-headers = {'user-agent':'my-app/0.05'}
-r = requests.get('https://www.zhihu.com/api/v4/questions/55493026/answers',headers=headers)
-
-print(r.text)
+import time
+from datetime import datetime
+date_num = 1557824412
+loc_time = time.localtime(date_num)
+print(loc_time)
+timestr = time.strftime("%Y-%m-%d %H:%M:%S",loc_time)
+date_test = datetime.fromtimestamp(date_num)
+print(date_test)
+print(timestr)
