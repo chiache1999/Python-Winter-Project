@@ -1,18 +1,11 @@
-from bs4 import BeautifulSoup
-doc = '''
-<html>
-      <head>
-           <title>The story</title>
-      </head>
-<body>
-      <p class="title-class" id="title-id"><b>The Dormouse's story</b></p>
-      <p class="content">
-            <a href="http://example.com/link1" class="link" id="link1">A</a>
-            <a href="http://example.com/link2" class="link" id="link2">B</a>
-            <a href="http://example.com/link3" class="link" id="link3">C</a>
-      </p>
-</body>
-</html>
-'''
-soup = BeautifulSoup(doc,"html.parser")
-print(soup.a)
+import requests
+
+url = "https://search.books.com.tw/"
+url += "search/query/cat/all/sort/1/v/0/ms2/ms2_1/page/1/key/python"
+
+r = requests.get(url)
+
+print(r.status_code)
+
+if r.status_code == requests.codes.ok:
+      print("ok")
