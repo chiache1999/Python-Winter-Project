@@ -1,11 +1,11 @@
-import requests
+from grab import Grab
+import pycurl
+g = Grab()
+resp = g.go('https://www.google.com')
 
-url = "https://search.books.com.tw/"
-url += "search/query/cat/all/sort/1/v/0/ms2/ms2_1/page/1/key/python"
+#print(resp.body)
 
-r = requests.get(url)
-
-print(r.status_code)
-
-if r.status_code == requests.codes.ok:
-      print("ok")
+from pyquery import PyQuery as pq
+doc = pq(resp.body)
+h1 = doc('title')
+print(type(h1),h1.text())
